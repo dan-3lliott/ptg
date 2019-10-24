@@ -5,7 +5,7 @@ import com.alee.laf.*;
 public class ptgWindow extends JFrame {
     private JTabbedPane mainPane = new JTabbedPane();
     private ViewPanel viewPanel = new ViewPanel();
-    private JPanel addPanel = new JPanel();
+    private AddPanel addPanel = new AddPanel();
     public ptgWindow() {
         //set up jframe
         setPreferredSize(new Dimension(1200, 700));
@@ -17,5 +17,6 @@ public class ptgWindow extends JFrame {
         setContentPane(mainPane);
         //add components
         mainPane.add(viewPanel, "View Students");
+        mainPane.add(addPanel, "Add Student");
     }
 }
