@@ -9,6 +9,7 @@ public class ptgWindow extends JFrame {
         setLocationRelativeTo(null);
         setTitle("ptg");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        mainPanel.add(new JButton("Test of webLAF"));
         add(mainPanel);
     }
 }
