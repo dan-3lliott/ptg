@@ -51,6 +51,8 @@ public class AddPanel extends JPanel {
                     gender.setSelectedIndex(0);
                     major.setText(null);
                     gpa.setText(null);
+                    Database db = new Database();
+                    db.sqlStatement("INSERT INTO `students` (`notes0`, `notes1`, `notes2`, `notes3`, `eduPlan`, `college`, `careerPath`, `ethnicity`, `regents`, `ncaa`, `firstGen`, `gender`, `major`, `gpa`) VALUES ('sdfklj', 'sdlkfj', 'sdlfkj', 'sdlkfj', 'sdlfkj', 'fsdklj', 'dfjsdfl', 'sdfi', '0', '0', '0', 'sdlfkj', 'sdlfkj', '3.0')");
                 }
                 catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Please ensure that all fields are correct before proceeding.");
