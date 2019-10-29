@@ -18,7 +18,8 @@ public class ViewPanel extends JPanel {
     public ViewPanel() {
         studentTable.getColumn("Student Name").setPreferredWidth(120);
         studentTable.getColumn("Education Plan").setPreferredWidth(130);
-        tablePane.setPreferredSize(new Dimension(1100, 500));
+        tablePane.setPreferredSize(new Dimension(1100, 640));
+        tablePane.setBorder(BorderFactory.createLineBorder(java.awt.Color.BLACK, 1, true));
         add(tablePane);
     }
 }
