@@ -39,6 +39,12 @@ public class AddPanel extends JPanel {
                     Main.students.add(new Student(null, eduPlan.getSelectedItem().toString(), college.getText(),
                             careerPath.getText(), ethnicity.getSelectedItem().toString(), regents.isSelected(), ncaa.isSelected(),
                             firstGen.isSelected(), gender.getSelectedItem().toString(), major.getText(), Double.parseDouble(gpa.getText())));
+                    Database db = new Database();
+                    db.sqlStatement("INSERT INTO `students` (`notes0`, `notes1`, `notes2`, `notes3`, `eduPlan`, " +
+                            "`college`, `careerPath`, `ethnicity`, `regents`, `ncaa`, `firstGen`, `gender`, `major`, " +
+                            "`gpa`) VALUES ('9th Grade Notes', '10th Grade Notes', '11th Grade Notes', '12th Grade Notes', " +
+                            "'" + eduPlan.getSelectedItem() + "', '" + college.getText() + "', '" + careerPath.getText() + "', '" +
+                            ethnicity.getSelectedItem() + "', '" + regents.isSelected() + "', '0', '0', '0', 'sdlfkj', 'sdlfkj', '3.0')");
                     JOptionPane.showMessageDialog(null, "Student successfully added.");
                     //reset all fields
                     eduPlan.setSelectedIndex(0);
@@ -51,8 +57,6 @@ public class AddPanel extends JPanel {
                     gender.setSelectedIndex(0);
                     major.setText(null);
                     gpa.setText(null);
-                    Database db = new Database();
-                    db.sqlStatement("INSERT INTO `students` (`notes0`, `notes1`, `notes2`, `notes3`, `eduPlan`, `college`, `careerPath`, `ethnicity`, `regents`, `ncaa`, `firstGen`, `gender`, `major`, `gpa`) VALUES ('sdfklj', 'sdlkfj', 'sdlfkj', 'sdlkfj', 'sdlfkj', 'fsdklj', 'dfjsdfl', 'sdfi', '0', '0', '0', 'sdlfkj', 'sdlfkj', '3.0')");
                 }
                 catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Please ensure that all fields are correct before proceeding.");

@@ -10,12 +10,13 @@ public class Database {
     public void sqlStatement(String statement) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
+            Connection con = DriverManager.getConnection("jdbc:mysql://37.59.55.185/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
             con.createStatement().execute(statement);
             con.close();
         }
         catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(null, e.getMessage());
+            //javax.swing.JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 }
