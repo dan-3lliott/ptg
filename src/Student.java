@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Student {
     //variable declaration
+    private String name;
     private String[] notes; //grades 9-12 represented by indexes 0-3
     private String eduPlan;
     private String college;
@@ -15,7 +16,8 @@ public class Student {
     private double gpa;
     private List<Class> classes = new ArrayList<>();
     //constructor
-    public Student(String[] notes, String eduPlan, String college, String careerPath, String ethnicity, boolean regents, boolean ncaa, boolean firstGen, String gender, String major, double gpa) {
+    public Student(String name, String[] notes, String eduPlan, String college, String careerPath, String ethnicity, boolean regents, boolean ncaa, boolean firstGen, String gender, String major, double gpa) {
+        this.name = name;
         this.notes = notes;
         this.eduPlan = eduPlan;
         this.college = college;
@@ -29,6 +31,12 @@ public class Student {
         this.gpa = gpa;
     }
     //get and set methods
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public String[] getNotes() {
         return notes;
     }
