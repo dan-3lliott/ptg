@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import com.alee.laf.*;
 
 public class ptgWindow extends JFrame {
     private JTabbedPane mainPane = new JTabbedPane();
