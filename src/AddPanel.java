@@ -38,10 +38,7 @@ public class AddPanel extends JPanel {
         addStudent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 try {
-                    Main.students.add(new Student(name.getText(),null, eduPlan.getSelectedItem().toString(), college.getText(),
-                            careerPath.getText(), ethnicity.getSelectedItem().toString(), regents.isSelected(), ncaa.isSelected(),
-                            firstGen.isSelected(), gender.getSelectedItem().toString(), major.getText(), Double.parseDouble(gpa.getText())));
-                    Database.sqlStatement("INSERT INTO `students` (`name`, `notes0`, `notes1`, `notes2`, `notes3`, `eduPlan`, " +
+                    Database.executeStatement("INSERT INTO `students` (`name`, `notes0`, `notes1`, `notes2`, `notes3`, `eduPlan`, " +
                             "`college`, `careerPath`, `ethnicity`, `regents`, `ncaa`, `firstGen`, `gender`, `major`, " +
                             "`gpa`) VALUES ('9th Grade Notes', '10th Grade Notes', '11th Grade Notes', '12th Grade Notes', " +
                             "'" + name.getText() + "', '" + eduPlan.getSelectedItem() + "', '" + college.getText() + "', '" + careerPath.getText() + "', '" +

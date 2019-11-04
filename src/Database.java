@@ -1,12 +1,13 @@
 import java.lang.Class;
 import java.sql.*;
+import java.util.*;
 
 public class Database {
     public static Object[][] viewTableContents() {
-        Object[][] contents = new Object[2][11];
-        return contents;
+        //pull students from database
+        return null;
     }
-    public static void sqlStatement(String statement) {
+    public static void executeStatement(String statement) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
