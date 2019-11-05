@@ -33,8 +33,10 @@ public class AddPanel extends JPanel {
     private JLabel gpaLabel = new JLabel("GPA:");
     private JTextField gpa = new JTextField();
     private JButton addStudent = new JButton("Add Student");
+    private ViewPanel viewPanelReference = new ViewPanel();
     //constructor
-    public AddPanel() {
+    public AddPanel(ViewPanel viewPanelReference) {
+        this.viewPanelReference = viewPanelReference;
         addStudent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 try {
@@ -45,6 +47,8 @@ public class AddPanel extends JPanel {
                             "'" + name.getText() + "', '" + eduPlan.getSelectedItem() + "', '" + college.getText() + "', '" + careerPath.getText() + "', '" +
                             ethnicity.getSelectedItem() + "', '" + (regents.isSelected() ? 1 : 0) + "', '" + (ncaa.isSelected() ? 1 : 0) + "', '" +
                             (firstGen.isSelected() ? 1 : 0) + "', '" + gender.getSelectedItem() + "', '" + major.getText() + "', '" + gpa.getText() + "')");
+                    //add student into table
+                    viewPanelReference.update();
                     JOptionPane.showMessageDialog(null, "Student successfully added.");
                     //reset all fields
                     name.setText(null);

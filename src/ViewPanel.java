@@ -69,4 +69,9 @@ public class ViewPanel extends JPanel {
         add(tablePane);
         add(searchBar);
     }
+    public void update() {
+        studentModel.setDataVector(Database.viewTableContents(), new String[]{
+                "Student Name", "Education Plan", "College", "Career Path",
+                "Ethnicity", "Regents", "NCAA", "1st Gen", "Gender", "Major", "GPA"});
+    }
 }
