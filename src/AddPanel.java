@@ -65,7 +65,7 @@ public class AddPanel extends JPanel {
             }
         });
         //set up content pane
-        inputPane.setPreferredSize(new Dimension(1100, 640));
+        inputPane.setPreferredSize(new Dimension(1150, 620));
         inputPane.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, true));
         inputPane.setLayout(layout);
         layout.setAutoCreateGaps(true);

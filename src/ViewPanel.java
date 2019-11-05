@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.table.*;
 import javax.swing.event.*;
 import java.awt.Dimension;
+import com.alee.laf.text.*;
 
 public class ViewPanel extends JPanel {
     //variable declaration
@@ -16,8 +17,7 @@ public class ViewPanel extends JPanel {
     private JTable studentTable = new JTable(studentModel);
     private JScrollPane tablePane = new JScrollPane(studentTable);
     private TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(studentModel);
-    private JLabel searchLabel = new JLabel("Search:");
-    private JTextField searchBar = new JTextField(20);
+    private WebTextField searchBar = new WebTextField(20);
     //constructor
     public ViewPanel() {
         //search functionality
@@ -63,10 +63,10 @@ public class ViewPanel extends JPanel {
         //ethnicity and career path are 'flex' and are not specified
         studentTable.setRowHeight(30);
         studentTable.setRowSorter(rowSorter);
-        tablePane.setPreferredSize(new Dimension(1150, 600));
+        tablePane.setPreferredSize(new Dimension(1150, 620));
         tablePane.setBorder(BorderFactory.createLineBorder(java.awt.Color.BLACK, 1, true));
+        searchBar.setInputPrompt("Search...");
         add(tablePane);
-        add(searchLabel);
         add(searchBar);
     }
 }
