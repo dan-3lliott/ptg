@@ -6,9 +6,9 @@ import com.alee.laf.text.*;
 
 public class ViewPanel extends JPanel {
     //variable declaration
-    private DefaultTableModel studentModel = new DefaultTableModel(Database.viewTableContents(), new String[]{
-            "Student Name", "Education Plan", "College", "Career Path",
-            "Ethnicity", "Regents", "NCAA", "1st Gen", "Gender", "Major", "GPA"}) {
+    private String[] studentTableHeader = new String[]{ "Student Name", "Student Number", "Education Plan",
+            "College", "Career Path", "Ethnicity", "Regents", "NCAA", "1st Gen", "Gender", "Major", "GPA"};
+    private DefaultTableModel studentModel = new DefaultTableModel(Database.viewTableContents(), studentTableHeader) {
         @Override
         public boolean isCellEditable(int row, int column) {
             return false;
@@ -51,16 +51,7 @@ public class ViewPanel extends JPanel {
             }
         });
         //set up table
-        studentTable.getColumn("Student Name").setPreferredWidth(100);
-        studentTable.getColumn("Education Plan").setPreferredWidth(110);
-        studentTable.getColumn("College").setPreferredWidth(80);
-        studentTable.getColumn("Regents").setPreferredWidth(40);
-        studentTable.getColumn("NCAA").setPreferredWidth(40);
-        studentTable.getColumn("1st Gen").setPreferredWidth(40);
-        studentTable.getColumn("Major").setPreferredWidth(100);
-        studentTable.getColumn("Gender").setPreferredWidth(30);
         studentTable.getColumn("GPA").setPreferredWidth(12);
-        //ethnicity and career path are 'flex' and are not specified
         studentTable.setRowHeight(30);
         studentTable.setRowSorter(rowSorter);
         tablePane.setPreferredSize(new Dimension(1150, 620));
@@ -70,8 +61,6 @@ public class ViewPanel extends JPanel {
         add(searchBar);
     }
     public void update() {
-        studentModel.setDataVector(Database.viewTableContents(), new String[]{
-                "Student Name", "Education Plan", "College", "Career Path",
-                "Ethnicity", "Regents", "NCAA", "1st Gen", "Gender", "Major", "GPA"});
+        studentModel.setDataVector(Database.viewTableContents(), studentTableHeader);
     }
 }

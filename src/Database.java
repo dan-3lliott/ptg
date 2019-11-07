@@ -10,9 +10,10 @@ public class Database {
             Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
             ResultSet results = con.createStatement().executeQuery("SELECT * FROM students");
             while (results.next()) {
-                tableContents.add(new Object[]{results.getString(5), results.getString(6), results.getString(7),
-                        results.getString(8),results.getString(9), results.getBoolean(10), results.getBoolean(11),
-                        results.getBoolean(12), results.getString(13), results.getString(14), results.getString(15)});
+                tableContents.add(new Object[]{results.getString("name"), results.getInt("studentNum"), results.getString("eduPlan"),
+                        results.getString("college"), results.getString("careerPath"), results.getString("ethnicity"),
+                        results.getBoolean("regents"), results.getBoolean("ncaa"), results.getBoolean("firstGen"),
+                        results.getString("gender"), results.getString("major"), results.getDouble("gpa")});
             }
         }
         catch (Exception e) {

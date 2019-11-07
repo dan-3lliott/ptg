@@ -8,6 +8,8 @@ public class AddPanel extends JPanel {
     private GroupLayout layout = new GroupLayout(inputPane);
     private JLabel nameLabel = new JLabel("Name:");
     private JTextField name = new JTextField();
+    private JLabel studentNumLabel = new JLabel("Student Number:");
+    private JTextField studentNum = new JTextField();
     private JLabel eduLabel = new JLabel("Education Plan:");
     private JComboBox eduPlan = new JComboBox(new String[]{
             "High School Diploma", "Technical Training", "Associate Degree",
@@ -41,17 +43,19 @@ public class AddPanel extends JPanel {
             public void actionPerformed(ActionEvent ev) {
                 try {
                     //add student into database
-                    Database.executeStatement("INSERT INTO `students` (`name`, `notes0`, `notes1`, `notes2`, `notes3`, `eduPlan`, " +
+                    Database.executeStatement("INSERT INTO `students` (`notes0`, `notes1`, `notes2`, `notes3`, `name`, `eduPlan`, " +
                             "`college`, `careerPath`, `ethnicity`, `regents`, `ncaa`, `firstGen`, `gender`, `major`, " +
-                            "`gpa`) VALUES ('9th Grade Notes', '10th Grade Notes', '11th Grade Notes', '12th Grade Notes', " +
+                            "`gpa`, `studentNum`) VALUES ('9th Grade Notes', '10th Grade Notes', '11th Grade Notes', '12th Grade Notes', " +
                             "'" + name.getText() + "', '" + eduPlan.getSelectedItem() + "', '" + college.getText() + "', '" + careerPath.getText() + "', '" +
                             ethnicity.getSelectedItem() + "', '" + (regents.isSelected() ? 1 : 0) + "', '" + (ncaa.isSelected() ? 1 : 0) + "', '" +
-                            (firstGen.isSelected() ? 1 : 0) + "', '" + gender.getSelectedItem() + "', '" + major.getText() + "', '" + gpa.getText() + "')");
+                            (firstGen.isSelected() ? 1 : 0) + "', '" + gender.getSelectedItem() + "', '" + major.getText() + "', '" + gpa.getText() +
+                            "', '" + studentNum.getText() + "')");
                     //add student into table
                     viewPanelReference.update();
                     JOptionPane.showMessageDialog(null, "Student successfully added.");
                     //reset all fields
                     name.setText(null);
+                    studentNum.setText(null);
                     eduPlan.setSelectedIndex(0);
                     college.setText(null);
                     careerPath.setText(null);
@@ -78,6 +82,7 @@ public class AddPanel extends JPanel {
         layout.setHorizontalGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                         .addComponent(nameLabel)
+                        .addComponent(studentNumLabel)
                         .addComponent(eduLabel)
                         .addComponent(collegeLabel)
                         .addComponent(careerPathLabel)
@@ -90,6 +95,7 @@ public class AddPanel extends JPanel {
                         .addComponent(gpaLabel))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(name)
+                        .addComponent(studentNum)
                         .addComponent(eduPlan)
                         .addComponent(college)
                         .addComponent(careerPath)
@@ -106,6 +112,9 @@ public class AddPanel extends JPanel {
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(nameLabel)
                         .addComponent(name))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(studentNumLabel)
+                        .addComponent(studentNum))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(eduLabel)
                         .addComponent(eduPlan))
