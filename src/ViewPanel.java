@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.table.*;
 import javax.swing.event.*;
 import java.awt.Dimension;
+import java.awt.event.*;
 import com.alee.laf.text.*;
 
 public class ViewPanel extends JPanel {
@@ -47,6 +48,14 @@ public class ViewPanel extends JPanel {
                 }
                 else {
                     rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchBar.getText()));
+                }
+            }
+        });
+        studentTable.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent ev) {
+                if (ev.getClickCount() == 2) {
+                    EditWindow win = new EditWindow((int)studentTable.getValueAt(studentTable.rowAtPoint(ev.getPoint()), 1));
+                    win.setVisible(true);
                 }
             }
         });
