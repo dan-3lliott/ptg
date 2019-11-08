@@ -35,8 +35,8 @@ public class Database {
                         results.getString("college"), results.getString("careerPath"), results.getString("ethnicity"),
                         results.getBoolean("regents"), results.getBoolean("ncaa"), results.getBoolean("firstGen"),
                         results.getString("gender"), results.getString("major"), results.getDouble("gpa"),
-                        new String[]{results.getString("notes0"), results.getString("notes1"), results.getString("notes2"),
-                            results.getString("notes3"), results.getString("id")}};
+                        results.getString("notes0"), results.getString("notes1"), results.getString("notes2"),
+                        results.getString("notes3"), results.getString("id")};
             }
         }
         catch (Exception e) {

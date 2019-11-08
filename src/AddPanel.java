@@ -60,10 +60,10 @@ public class AddPanel extends JPanel {
             public void actionPerformed(ActionEvent ev) {
                 try {
                     //add student into database
-                    Database.executeStatement("INSERT INTO `students` (`notes0`, `notes1`, `notes2`, `notes3`, `name`, `eduPlan`, " +
-                            "`college`, `careerPath`, `ethnicity`, `regents`, `ncaa`, `firstGen`, `gender`, `major`, " +
-                            "`gpa`, `studentNum`) VALUES ('" + notes0.getText() + "', '" + notes1.getText() + "', '" + notes2.getText() +
-                            "', '" + notes3.getText() + "', " +  "'" + name.getText() + "', '" + eduPlan.getSelectedItem() + "', '" +
+                    Database.executeStatement("INSERT INTO students (notes0, notes1, notes2, notes3, name, eduPlan, " +
+                            "college, careerPath, ethnicity, regents, ncaa, firstGen, gender, major, " +
+                            "gpa, studentNum) VALUES ('" + notes0.getText() + "', '" + notes1.getText() + "', '" + notes2.getText() +
+                            "', '" + notes3.getText() + "', '" + name.getText() + "', '" + eduPlan.getSelectedItem() + "', '" +
                             college.getText() + "', '" + careerPath.getText() + "', '" + ethnicity.getSelectedItem() + "', '" +
                             (regents.isSelected() ? 1 : 0) + "', '" + (ncaa.isSelected() ? 1 : 0) + "', '" + (firstGen.isSelected() ? 1 : 0) +
                             "', '" + gender.getSelectedItem() + "', '" + major.getText() + "', '" + gpa.getText() + "', '" + studentNum.getText() + "')");

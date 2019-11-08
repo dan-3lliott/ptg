@@ -54,7 +54,7 @@ public class ViewPanel extends JPanel {
         studentTable.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent ev) {
                 if (ev.getClickCount() == 2) {
-                    EditWindow win = new EditWindow((int)studentTable.getValueAt(studentTable.rowAtPoint(ev.getPoint()), 1));
+                    EditWindow win = new EditWindow((int)studentTable.getValueAt(studentTable.rowAtPoint(ev.getPoint()), 1), ViewPanel.this);
                     win.setVisible(true);
                 }
             }
