@@ -62,11 +62,11 @@ public class AddPanel extends JPanel {
                     //add student into database
                     Database.executeStatement("INSERT INTO `students` (`notes0`, `notes1`, `notes2`, `notes3`, `name`, `eduPlan`, " +
                             "`college`, `careerPath`, `ethnicity`, `regents`, `ncaa`, `firstGen`, `gender`, `major`, " +
-                            "`gpa`, `studentNum`) VALUES ('9th Grade Notes', '10th Grade Notes', '11th Grade Notes', '12th Grade Notes', " +
-                            "'" + name.getText() + "', '" + eduPlan.getSelectedItem() + "', '" + college.getText() + "', '" + careerPath.getText() + "', '" +
-                            ethnicity.getSelectedItem() + "', '" + (regents.isSelected() ? 1 : 0) + "', '" + (ncaa.isSelected() ? 1 : 0) + "', '" +
-                            (firstGen.isSelected() ? 1 : 0) + "', '" + gender.getSelectedItem() + "', '" + major.getText() + "', '" + gpa.getText() +
-                            "', '" + studentNum.getText() + "')");
+                            "`gpa`, `studentNum`) VALUES ('" + notes0.getText() + "', '" + notes1.getText() + "', '" + notes2.getText() +
+                            "', '" + notes3.getText() + "', " +  "'" + name.getText() + "', '" + eduPlan.getSelectedItem() + "', '" +
+                            college.getText() + "', '" + careerPath.getText() + "', '" + ethnicity.getSelectedItem() + "', '" +
+                            (regents.isSelected() ? 1 : 0) + "', '" + (ncaa.isSelected() ? 1 : 0) + "', '" + (firstGen.isSelected() ? 1 : 0) +
+                            "', '" + gender.getSelectedItem() + "', '" + major.getText() + "', '" + gpa.getText() + "', '" + studentNum.getText() + "')");
                     //add student into table
                     viewPanelReference.update();
                     JOptionPane.showMessageDialog(null, "Student successfully added.");
@@ -83,6 +83,10 @@ public class AddPanel extends JPanel {
                     gender.setSelectedIndex(0);
                     major.setText(null);
                     gpa.setText(null);
+                    notes0.setText(null);
+                    notes1.setText(null);
+                    notes2.setText(null);
+                    notes3.setText(null);
                 }
                 catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Please ensure that all fields are correct before proceeding.");
