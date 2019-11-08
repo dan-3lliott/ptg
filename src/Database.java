@@ -7,7 +7,7 @@ public class Database {
         List<Object[]> tableContents = new ArrayList<Object[]>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
             ResultSet results = con.createStatement().executeQuery("SELECT * FROM students");
             while (results.next()) {
                 tableContents.add(new Object[]{results.getString("name"), results.getInt("studentNum"), results.getString("eduPlan"),
@@ -28,7 +28,7 @@ public class Database {
         Object[] dbData = new Object[17];
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
             ResultSet results = con.createStatement().executeQuery("SELECT * FROM students WHERE studentNum = '" + studentNum + "'");
             while (results.next()) {
                 dbData = new Object[]{results.getString("name"), results.getInt("studentNum"), results.getString("eduPlan"),
@@ -47,7 +47,7 @@ public class Database {
     public static void executeStatement(String statement) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
             con.createStatement().execute(statement);
             con.close();
         }
