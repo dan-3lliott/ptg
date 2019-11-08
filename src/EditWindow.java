@@ -1,3 +1,5 @@
+import com.alee.laf.panel.*;
+import com.alee.managers.style.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -6,9 +8,9 @@ public class EditWindow extends JFrame {
     //variable declarations
     private Object[] studentData;
     private JPanel mainPane = new JPanel();
-    private JPanel infoPane = new JPanel();
-    private JPanel notePane = new JPanel();
-    private JPanel classPane = new JPanel();
+    private JPanel infoPane = new WebPanel(StyleId.of("shadow"));
+    private JPanel notePane = new WebPanel(StyleId.of("shadow"));
+    private JPanel classPane = new WebPanel(StyleId.of("shadow"));
     private GroupLayout infoLayout = new GroupLayout(infoPane);
     private GroupLayout noteLayout = new GroupLayout(notePane);
     private GroupLayout classLayout = new GroupLayout(classPane);

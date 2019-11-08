@@ -1,0 +1,45 @@
+<skin xmlns="http://weblookandfeel.com/XmlSkin">
+    <!-- Skin settings -->
+    <id>ptg.skin</id>
+    <class>PTGSkin</class>
+    <supportedSystems>all</supportedSystems>
+    <!-- Skin information -->
+    <title>PTGSkin</title>
+    <description>Custom WebLaF skin for ptg</description>
+    <author>Daniel Elliott</author>
+    <!-- Including WebLaF default skin, will use its style as a base -->
+    <include nearClass="com.alee.skin.dark.DarkSkin">resources/skin.xml</include>
+    <!-- Our custom panel style -->
+    <style type="panel" id="shadow">
+        <painter>
+            <decorations>
+                <decoration>
+                    <WebShape round="5" />
+                    <WebShadow type="outer" width="15" />
+                    <LineBorder color="20,20,20" />
+                </decoration>
+            </decorations>
+        </painter>
+        <!-- Title label style -->
+        <style type="label" id="title" extends="shadow" padding="5,7,5,7" />
+        <!-- Separator style -->
+        <style type="separator" id="line" extends="horizontal" />
+        <!-- Scroll pane style -->
+        <style type="scrollpane" id="scroll" extends="transparent-hovering" padding="5,5,5,5">
+            <painter>
+                <decorations overwrite="true">
+                    <decoration>
+                        <WebShape round="0,0,5,5" />
+                        <ColorBackground color="106,110,112" />
+                    </decoration>
+                </decorations>
+            </painter>
+            <!-- Text area style -->
+            <style type="textarea" id="text">
+                <component>
+                    <opaque>false</opaque>
+                </component>
+            </style>
+        </style>
+    </style>
+</skin>

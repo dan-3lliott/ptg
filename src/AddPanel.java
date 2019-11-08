@@ -1,13 +1,14 @@
+import com.alee.laf.panel.*;
+import com.alee.managers.style.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class AddPanel extends JPanel {
     //variable declarations
-    private JPanel mainPane = new JPanel();
-    private JPanel infoPane = new JPanel();
-    private JPanel notePane = new JPanel();
-    private JPanel classPane = new JPanel();
+    private JPanel infoPane = new WebPanel(StyleId.of("shadow"));
+    private JPanel notePane = new WebPanel(StyleId.of("shadow"));
+    private JPanel classPane = new WebPanel(StyleId.of("shadow"));
     private GroupLayout infoLayout = new GroupLayout(infoPane);
     private GroupLayout noteLayout = new GroupLayout(notePane);
     private GroupLayout classLayout = new GroupLayout(classPane);
@@ -94,8 +95,7 @@ public class AddPanel extends JPanel {
             }
         });
         //set up content pane
-        mainPane.setPreferredSize(new Dimension(1150, 620));
-        mainPane.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, true));
+        setPreferredSize(new Dimension(1150, 620));
         infoPane.setLayout(infoLayout);
         notePane.setLayout(noteLayout);
         classPane.setLayout(classLayout);
@@ -213,10 +213,8 @@ public class AddPanel extends JPanel {
         );
         //add components to classLayout and classPane
 
-        //combine panels
-        mainPane.add(infoPane);
-        mainPane.add(notePane);
-        mainPane.add(classPane);
-        add(mainPane);
+        //add panels
+        add(infoPane);
+        add(notePane);
     }
 }
