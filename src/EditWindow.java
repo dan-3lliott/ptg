@@ -98,8 +98,8 @@ public class EditWindow extends JFrame {
             }
         });
         //set up content pane and window
-        setPreferredSize(new Dimension(1100, 500));
-        setMinimumSize(new Dimension(1100, 500));
+        setPreferredSize(new Dimension(1100, 485));
+        setMinimumSize(new Dimension(1100, 485));
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("Edit Student");

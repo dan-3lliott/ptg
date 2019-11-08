@@ -3,7 +3,9 @@ import javax.swing.table.*;
 import javax.swing.event.*;
 import java.awt.Dimension;
 import java.awt.event.*;
+import com.alee.laf.scroll.WebScrollPane;
 import com.alee.laf.text.*;
+import com.alee.managers.style.*;
 
 public class ViewPanel extends JPanel {
     //variable declaration
@@ -16,7 +18,7 @@ public class ViewPanel extends JPanel {
         }
     };
     private JTable studentTable = new JTable(studentModel);
-    private JScrollPane tablePane = new JScrollPane(studentTable);
+    private JScrollPane tablePane = new WebScrollPane(StyleId.of("scrollshadow"), studentTable);
     private TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(studentModel);
     private WebTextField searchBar = new WebTextField(20);
     //constructor
@@ -65,8 +67,8 @@ public class ViewPanel extends JPanel {
         studentTable.getColumn("GPA").setMaxWidth(40);
         studentTable.setRowHeight(30);
         studentTable.setRowSorter(rowSorter);
-        tablePane.setPreferredSize(new Dimension(1150, 620));
-        tablePane.setBorder(BorderFactory.createLineBorder(java.awt.Color.BLACK, 1, true));
+        tablePane.setPreferredSize(new Dimension(1150, 610));
+        tablePane.setFocusable(false);
         searchBar.setInputPrompt("Search...");
         add(tablePane);
         add(searchBar);
