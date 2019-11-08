@@ -4,8 +4,13 @@ import java.awt.event.*;
 
 public class AddPanel extends JPanel {
     //variable declarations
-    private JPanel inputPane = new JPanel();
-    private GroupLayout layout = new GroupLayout(inputPane);
+    private JPanel mainPane = new JPanel();
+    private JPanel infoPane = new JPanel();
+    private JPanel notePane = new JPanel();
+    private JPanel classPane = new JPanel();
+    private GroupLayout infoLayout = new GroupLayout(infoPane);
+    private GroupLayout noteLayout = new GroupLayout(notePane);
+    private GroupLayout classLayout = new GroupLayout(classPane);
     private JLabel nameLabel = new JLabel("Name:");
     private JTextField name = new JTextField();
     private JLabel studentNumLabel = new JLabel("Student Number:");
@@ -35,6 +40,18 @@ public class AddPanel extends JPanel {
     private JLabel gpaLabel = new JLabel("GPA:");
     private JTextField gpa = new JTextField();
     private JButton addStudent = new JButton("Add Student");
+    private JLabel notes0label = new JLabel("9th Grade Notes:");
+    private JTextArea notes0 = new JTextArea(6, 20);
+    private JLabel notes1label = new JLabel("10th Grade Notes:");
+    private JTextArea notes1 = new JTextArea(6, 20);
+    private JLabel notes2label = new JLabel("11th Grade Notes:");
+    private JTextArea notes2 = new JTextArea(6, 20);
+    private JLabel notes3label = new JLabel("12th Grade Notes:");
+    private JTextArea notes3 = new JTextArea(6, 20);
+    private JScrollPane notes0pane = new JScrollPane(notes0);
+    private JScrollPane notes1pane = new JScrollPane(notes1);
+    private JScrollPane notes2pane = new JScrollPane(notes2);
+    private JScrollPane notes3pane = new JScrollPane(notes3);
     private ViewPanel viewPanelReference = new ViewPanel();
     //constructor
     public AddPanel(ViewPanel viewPanelReference) {
@@ -73,14 +90,29 @@ public class AddPanel extends JPanel {
             }
         });
         //set up content pane
-        inputPane.setPreferredSize(new Dimension(1150, 620));
-        inputPane.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, true));
-        inputPane.setLayout(layout);
-        layout.setAutoCreateGaps(true);
-        layout.setAutoCreateContainerGaps(true);
-        //add components to layout and pane
-        layout.setHorizontalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+        mainPane.setPreferredSize(new Dimension(1150, 620));
+        mainPane.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, true));
+        infoPane.setLayout(infoLayout);
+        notePane.setLayout(noteLayout);
+        classPane.setLayout(classLayout);
+        infoLayout.setAutoCreateGaps(true);
+        infoLayout.setAutoCreateContainerGaps(true);
+        noteLayout.setAutoCreateGaps(true);
+        noteLayout.setAutoCreateContainerGaps(true);
+        classLayout.setAutoCreateGaps(true);
+        classLayout.setAutoCreateContainerGaps(true);
+        //set up components
+        notes0.setLineWrap(true);
+        notes0.setWrapStyleWord(true);
+        notes1.setLineWrap(true);
+        notes1.setWrapStyleWord(true);
+        notes2.setLineWrap(true);
+        notes2.setWrapStyleWord(true);
+        notes3.setLineWrap(true);
+        notes3.setWrapStyleWord(true);
+        //add components to infoLayout and infoPane
+        infoLayout.setHorizontalGroup(infoLayout.createSequentialGroup()
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                         .addComponent(nameLabel)
                         .addComponent(studentNumLabel)
                         .addComponent(eduLabel)
@@ -93,7 +125,7 @@ public class AddPanel extends JPanel {
                         .addComponent(genderLabel)
                         .addComponent(majorLabel)
                         .addComponent(gpaLabel))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(name)
                         .addComponent(studentNum)
                         .addComponent(eduPlan)
@@ -108,46 +140,79 @@ public class AddPanel extends JPanel {
                         .addComponent(gpa)
                         .addComponent(addStudent))
         );
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+        infoLayout.setVerticalGroup(infoLayout.createSequentialGroup()
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(nameLabel)
                         .addComponent(name))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(studentNumLabel)
                         .addComponent(studentNum))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(eduLabel)
                         .addComponent(eduPlan))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(collegeLabel)
                         .addComponent(college))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(careerPathLabel)
                         .addComponent(careerPath))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(ethnicityLabel)
                         .addComponent(ethnicity))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(regentsLabel)
                         .addComponent(regents))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(ncaaLabel)
                         .addComponent(ncaa))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(firstGenLabel)
                         .addComponent(firstGen))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(genderLabel)
                         .addComponent(gender))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(majorLabel)
                         .addComponent(major))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(gpaLabel)
                         .addComponent(gpa))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(addStudent))
         );
-        add(inputPane);
+        //add components to noteLayout and notePane
+        noteLayout.setHorizontalGroup(noteLayout.createSequentialGroup()
+                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(notes0label)
+                        .addComponent(notes0pane)
+                        .addComponent(notes2label)
+                        .addComponent(notes2pane))
+                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(notes1label)
+                        .addComponent(notes1pane)
+                        .addComponent(notes3label)
+                        .addComponent(notes3pane))
+        );
+        noteLayout.setVerticalGroup(noteLayout.createSequentialGroup()
+                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(notes0label)
+                        .addComponent(notes1label))
+                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(notes0pane)
+                        .addComponent(notes1pane))
+                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(notes2label)
+                        .addComponent(notes3label))
+                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(notes2pane)
+                        .addComponent(notes3pane))
+        );
+        //add components to classLayout and classPane
+
+        //combine panels
+        mainPane.add(infoPane);
+        mainPane.add(notePane);
+        mainPane.add(classPane);
+        add(mainPane);
     }
 }

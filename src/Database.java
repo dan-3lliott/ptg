@@ -12,7 +12,6 @@ public class Database {
             while (results.next()) {
                 tableContents.add(new Object[]{results.getString("name"), results.getInt("studentNum"), results.getString("eduPlan"),
                         results.getString("college"), results.getString("careerPath"), results.getString("ethnicity"),
-                        results.getBoolean("regents"), results.getBoolean("ncaa"), results.getBoolean("firstGen"),
                         results.getString("gender"), results.getString("major"), results.getDouble("gpa")});
             }
         }
@@ -26,7 +25,7 @@ public class Database {
         return contents;
     }
     public static Object[] studentData(int studentNum) {
-        Object[] dbData = new Object[16];
+        Object[] dbData = new Object[17];
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
@@ -37,7 +36,7 @@ public class Database {
                         results.getBoolean("regents"), results.getBoolean("ncaa"), results.getBoolean("firstGen"),
                         results.getString("gender"), results.getString("major"), results.getDouble("gpa"),
                         new String[]{results.getString("notes0"), results.getString("notes1"), results.getString("notes2"),
-                            results.getString("notes3")}};
+                            results.getString("notes3"), results.getString("id")}};
             }
         }
         catch (Exception e) {

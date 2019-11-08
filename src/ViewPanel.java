@@ -8,7 +8,7 @@ import com.alee.laf.text.*;
 public class ViewPanel extends JPanel {
     //variable declaration
     private String[] studentTableHeader = new String[]{ "Student Name", "Student Number", "Education Plan",
-            "College", "Career Path", "Ethnicity", "Regents", "NCAA", "1st Gen", "Gender", "Major", "GPA"};
+            "College", "Career Path", "Ethnicity", "Gender", "Major", "GPA"};
     private DefaultTableModel studentModel = new DefaultTableModel(Database.viewTableContents(), studentTableHeader) {
         @Override
         public boolean isCellEditable(int row, int column) {
@@ -60,7 +60,9 @@ public class ViewPanel extends JPanel {
             }
         });
         //set up table
-        studentTable.getColumn("GPA").setPreferredWidth(12);
+        studentTable.getColumn("Student Number").setPreferredWidth(80);
+        studentTable.getColumn("Gender").setMaxWidth(60);
+        studentTable.getColumn("GPA").setMaxWidth(40);
         studentTable.setRowHeight(30);
         studentTable.setRowSorter(rowSorter);
         tablePane.setPreferredSize(new Dimension(1150, 620));

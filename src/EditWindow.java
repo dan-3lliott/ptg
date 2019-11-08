@@ -4,8 +4,11 @@ import java.awt.*;
 public class EditWindow extends JFrame {
     //variable declaration
     private JPanel mainPane = new JPanel();
+    private JPanel infoPanel = new JPanel();
+    private JPanel notesPanel = new JPanel();
+    private JPanel classPanel = new JPanel();
     private Object[] studentData;
-    private GroupLayout layout = new GroupLayout(mainPane);
+    private GroupLayout layout = new GroupLayout(infoPanel);
     private JLabel nameLabel = new JLabel("Name:");
     private JTextField name = new JTextField();
     private JLabel studentNumLabel = new JLabel("Student Number:");
@@ -50,77 +53,6 @@ public class EditWindow extends JFrame {
         layout.setAutoCreateContainerGaps(true);
         //get student data from database
         studentData = Database.studentData(studentNo);
-        //add components to layout and pane
-        layout.setHorizontalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(nameLabel)
-                        .addComponent(studentNumLabel)
-                        .addComponent(eduLabel)
-                        .addComponent(collegeLabel)
-                        .addComponent(careerPathLabel)
-                        .addComponent(ethnicityLabel)
-                        .addComponent(regentsLabel)
-                        .addComponent(ncaaLabel)
-                        .addComponent(firstGenLabel)
-                        .addComponent(genderLabel)
-                        .addComponent(majorLabel)
-                        .addComponent(gpaLabel))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(name)
-                        .addComponent(studentNum)
-                        .addComponent(eduPlan)
-                        .addComponent(college)
-                        .addComponent(careerPath)
-                        .addComponent(ethnicity)
-                        .addComponent(regents)
-                        .addComponent(ncaa)
-                        .addComponent(firstGen)
-                        .addComponent(gender)
-                        .addComponent(major)
-                        .addComponent(gpa)
-                        .addComponent(addStudent))
-        );
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(nameLabel)
-                        .addComponent(name))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(studentNumLabel)
-                        .addComponent(studentNum))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(eduLabel)
-                        .addComponent(eduPlan))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(collegeLabel)
-                        .addComponent(college))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(careerPathLabel)
-                        .addComponent(careerPath))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(ethnicityLabel)
-                        .addComponent(ethnicity))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(regentsLabel)
-                        .addComponent(regents))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(ncaaLabel)
-                        .addComponent(ncaa))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(firstGenLabel)
-                        .addComponent(firstGen))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(genderLabel)
-                        .addComponent(gender))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(majorLabel)
-                        .addComponent(major))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(gpaLabel)
-                        .addComponent(gpa))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(addStudent))
-        );
-        //transfer student values into form
-
+        //will replicate addPanel in the future
     }
 }
