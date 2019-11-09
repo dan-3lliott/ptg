@@ -30,14 +30,12 @@ public class Database {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
             ResultSet results = con.createStatement().executeQuery("SELECT * FROM students WHERE studentNum = '" + studentNum + "'");
-            while (results.next()) {
-                dbData = new Object[]{results.getString("name"), results.getInt("studentNum"), results.getString("eduPlan"),
+            dbData = new Object[]{results.getString("name"), results.getInt("studentNum"), results.getString("eduPlan"),
                         results.getString("college"), results.getString("careerPath"), results.getString("ethnicity"),
                         results.getBoolean("regents"), results.getBoolean("ncaa"), results.getBoolean("firstGen"),
                         results.getString("gender"), results.getString("major"), results.getDouble("gpa"),
                         results.getString("notes0"), results.getString("notes1"), results.getString("notes2"),
                         results.getString("notes3"), results.getString("id")};
-            }
         }
         catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(null, e.getMessage());

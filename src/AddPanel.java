@@ -95,7 +95,6 @@ public class AddPanel extends JPanel {
             }
         });
         //set up content pane
-        setPreferredSize(new Dimension(1150, 620));
         infoPane.setLayout(infoLayout);
         notePane.setLayout(noteLayout);
         classPane.setLayout(classLayout);
