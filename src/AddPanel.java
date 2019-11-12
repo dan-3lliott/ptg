@@ -53,6 +53,23 @@ public class AddPanel extends JPanel {
     private JScrollPane notes1pane = new JScrollPane(notes1);
     private JScrollPane notes2pane = new JScrollPane(notes2);
     private JScrollPane notes3pane = new JScrollPane(notes3);
+    private JLabel a1label = new JLabel("A1:");
+    private JComboBox a1 = new JComboBox();
+    private JLabel a2label = new JLabel("A2:");
+    private JComboBox a2 = new JComboBox();
+    private JLabel a3label = new JLabel("A3:");
+    private JComboBox a3 = new JComboBox();
+    private JLabel a4label = new JLabel("A4:");
+    private JComboBox a4 = new JComboBox();
+    private JLabel b1label = new JLabel("B1:");
+    private JComboBox b1 = new JComboBox();
+    private JLabel b2label = new JLabel("B2:");
+    private JComboBox b2 = new JComboBox();
+    private JLabel b3label = new JLabel("B3:");
+    private JComboBox b3 = new JComboBox();
+    private JLabel b4label = new JLabel("B4:");
+    private JComboBox b4 = new JComboBox();
+    private JTable classTable = new JTable();
     private ViewPanel viewPanelReference = new ViewPanel();
     //constructor
     public AddPanel(ViewPanel viewPanelReference) {
@@ -211,9 +228,53 @@ public class AddPanel extends JPanel {
                         .addComponent(notes3pane))
         );
         //add components to classLayout and classPane
-
+        classLayout.setHorizontalGroup(classLayout.createSequentialGroup()
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(a1label)
+                        .addComponent(a2label)
+                        .addComponent(a3label)
+                        .addComponent(a4label))
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(a1)
+                        .addComponent(a2)
+                        .addComponent(a3)
+                        .addComponent(a4))
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(b1label)
+                        .addComponent(b2label)
+                        .addComponent(b3label)
+                        .addComponent(b4label))
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(b1)
+                        .addComponent(b2)
+                        .addComponent(b3)
+                        .addComponent(b4))
+        );
+        classLayout.setVerticalGroup(classLayout.createSequentialGroup()
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(a1label)
+                        .addComponent(a1)
+                        .addComponent(b1label)
+                        .addComponent(b1))
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(a2label)
+                        .addComponent(a2)
+                        .addComponent(b2label)
+                        .addComponent(b2))
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(a3label)
+                        .addComponent(a3)
+                        .addComponent(b3label)
+                        .addComponent(b3))
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
+                        .addComponent(a4label)
+                        .addComponent(a4)
+                        .addComponent(b4label)
+                        .addComponent(b4))
+        );
         //add panels
         add(infoPane);
         add(notePane);
+        add(classPane);
     }
 }
