@@ -34,7 +34,7 @@ public class Database {
             while (results.next()) {
                 if (i > 16) { //skip past student information to class columns
                     String s = results.getString(1);
-                    dbClasses.add(s.substring(0, s.length() - 3));
+                    dbClasses.add(s.substring(0, s.indexOf("_")));
                 }
                 i++;
             }
@@ -42,9 +42,8 @@ public class Database {
         catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        System.out.println(dbClasses.size());
         Object[] classes = new Object[dbClasses.size()];
-        for (int i = 0; i < dbClasses.size(); i++) {
+        for (int i = 0; i < classes.length; i++) {
             classes[i] = dbClasses.get(i);
         }
         return classes;
