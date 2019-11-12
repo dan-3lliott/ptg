@@ -1,8 +1,8 @@
 import com.alee.laf.panel.*;
 import com.alee.managers.style.*;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
 
 public class AddPanel extends JPanel {
     //variable declarations
@@ -53,22 +53,23 @@ public class AddPanel extends JPanel {
     private JScrollPane notes1pane = new JScrollPane(notes1);
     private JScrollPane notes2pane = new JScrollPane(notes2);
     private JScrollPane notes3pane = new JScrollPane(notes3);
+    private Object[] classes = Database.classes();
     private JLabel a1label = new JLabel("A1:");
-    private JComboBox a1 = new JComboBox();
+    private JComboBox a1 = new JComboBox(classes);
     private JLabel a2label = new JLabel("A2:");
-    private JComboBox a2 = new JComboBox();
+    private JComboBox a2 = new JComboBox(classes);
     private JLabel a3label = new JLabel("A3:");
-    private JComboBox a3 = new JComboBox();
+    private JComboBox a3 = new JComboBox(classes);
     private JLabel a4label = new JLabel("A4:");
-    private JComboBox a4 = new JComboBox();
+    private JComboBox a4 = new JComboBox(classes);
     private JLabel b1label = new JLabel("B1:");
-    private JComboBox b1 = new JComboBox();
+    private JComboBox b1 = new JComboBox(classes);
     private JLabel b2label = new JLabel("B2:");
-    private JComboBox b2 = new JComboBox();
+    private JComboBox b2 = new JComboBox(classes);
     private JLabel b3label = new JLabel("B3:");
-    private JComboBox b3 = new JComboBox();
+    private JComboBox b3 = new JComboBox(classes);
     private JLabel b4label = new JLabel("B4:");
-    private JComboBox b4 = new JComboBox();
+    private JComboBox b4 = new JComboBox(classes);
     private JTable classTable = new JTable();
     private ViewPanel viewPanelReference = new ViewPanel();
     //constructor

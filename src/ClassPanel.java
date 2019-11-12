@@ -22,6 +22,7 @@ public class ClassPanel extends JPanel {
                     //add class column into database
                     Database.executeStatement("ALTER TABLE students ADD `" + classTitle.getText() + "_" + classPeriod.getSelectedItem() +
                             "` BOOLEAN");
+                    JOptionPane.showMessageDialog(null, "Class successfully added.");
                 }
                 catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e.getMessage());
