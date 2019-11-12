@@ -76,14 +76,14 @@ public class EditWindow extends JFrame {
                     //reset all fields
                     name.setText(null);
                     studentNum.setText(null);
-                    eduPlan.setSelectedIndex(0);
+                    eduPlan.setSelectedIndex(-1);
                     college.setText(null);
                     careerPath.setText(null);
-                    ethnicity.setSelectedIndex(0);
+                    ethnicity.setSelectedIndex(-1);
                     regents.setSelected(false);
                     ncaa.setSelected(false);
                     firstGen.setSelected(false);
-                    gender.setSelectedIndex(0);
+                    gender.setSelectedIndex(-1);
                     major.setText(null);
                     gpa.setText(null);
                     notes0.setText(null);
@@ -115,6 +115,9 @@ public class EditWindow extends JFrame {
         classLayout.setAutoCreateGaps(true);
         classLayout.setAutoCreateContainerGaps(true);
         //set up components
+        eduPlan.setSelectedIndex(-1);
+        ethnicity.setSelectedIndex(-1);
+        gender.setSelectedIndex(-1);
         notes0.setLineWrap(true);
         notes0.setWrapStyleWord(true);
         notes1.setLineWrap(true);

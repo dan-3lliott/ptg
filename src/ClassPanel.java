@@ -23,15 +23,21 @@ public class ClassPanel extends JPanel {
                     Database.executeStatement("ALTER TABLE students ADD `" + classTitle.getText() + "_" + classPeriod.getSelectedItem() +
                             "` BOOLEAN");
                     JOptionPane.showMessageDialog(null, "Class successfully added.");
+                    //reset all fields
+                    classTitle.setText(null);
+                    classCredit.setSelectedIndex(0);
+                    classPeriod.setSelectedIndex(0);
                 }
                 catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             }
         });
+        //set up layout and pane
         infoPane.setLayout(infoLayout);
         infoLayout.setAutoCreateGaps(true);
         infoLayout.setAutoCreateContainerGaps(true);
+        //add components to layout and pane
         infoLayout.setHorizontalGroup(infoLayout.createSequentialGroup()
                 .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                         .addComponent(classTitleLabel)

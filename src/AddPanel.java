@@ -70,11 +70,8 @@ public class AddPanel extends JPanel {
     private JComboBox b3 = new JComboBox(classes);
     private JLabel b4label = new JLabel("B4:");
     private JComboBox b4 = new JComboBox(classes);
-    private JTable classTable = new JTable();
-    private ViewPanel viewPanelReference = new ViewPanel();
     //constructor
     public AddPanel(ViewPanel viewPanelReference) {
-        this.viewPanelReference = viewPanelReference;
         addStudent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 try {
@@ -92,14 +89,14 @@ public class AddPanel extends JPanel {
                     //reset all fields
                     name.setText(null);
                     studentNum.setText(null);
-                    eduPlan.setSelectedIndex(0);
+                    eduPlan.setSelectedIndex(-1);
                     college.setText(null);
                     careerPath.setText(null);
-                    ethnicity.setSelectedIndex(0);
+                    ethnicity.setSelectedIndex(-1);
                     regents.setSelected(false);
                     ncaa.setSelected(false);
                     firstGen.setSelected(false);
-                    gender.setSelectedIndex(0);
+                    gender.setSelectedIndex(-1);
                     major.setText(null);
                     gpa.setText(null);
                     notes0.setText(null);
@@ -123,6 +120,9 @@ public class AddPanel extends JPanel {
         classLayout.setAutoCreateGaps(true);
         classLayout.setAutoCreateContainerGaps(true);
         //set up components
+        eduPlan.setSelectedIndex(-1);
+        ethnicity.setSelectedIndex(-1);
+        gender.setSelectedIndex(-1);
         notes0.setLineWrap(true);
         notes0.setWrapStyleWord(true);
         notes1.setLineWrap(true);
@@ -131,6 +131,14 @@ public class AddPanel extends JPanel {
         notes2.setWrapStyleWord(true);
         notes3.setLineWrap(true);
         notes3.setWrapStyleWord(true);
+        a1.setSelectedIndex(-1);
+        a2.setSelectedIndex(-1);
+        a3.setSelectedIndex(-1);
+        a4.setSelectedIndex(-1);
+        b1.setSelectedIndex(-1);
+        b2.setSelectedIndex(-1);
+        b3.setSelectedIndex(-1);
+        b4.setSelectedIndex(-1);
         //add components to infoLayout and infoPane
         infoLayout.setHorizontalGroup(infoLayout.createSequentialGroup()
                 .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
