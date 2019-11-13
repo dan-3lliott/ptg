@@ -8,12 +8,13 @@ public class ptgWindow extends JFrame {
     private ClassPanel classPanel = new ClassPanel(addPanel);
     public ptgWindow() {
         //set up jframe
-        setPreferredSize(new Dimension(1200, 700));
-        setMinimumSize(new Dimension(1200, 700));
+        setPreferredSize(new Dimension(1600, 900));
+        setMinimumSize(new Dimension(1600, 900));
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("ptg");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        mainPane.setTabPlacement(SwingConstants.LEFT);
         setContentPane(mainPane);
         //add components
         mainPane.add(viewPanel, "View Students");

@@ -2,6 +2,7 @@ import com.alee.laf.panel.WebPanel;
 import com.alee.managers.style.StyleId;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.Dimension;
 import java.util.List;
 
 public class AddPanel extends JPanel {
@@ -273,6 +274,8 @@ public class AddPanel extends JPanel {
                         .addComponent(b4label)
                         .addComponent(classes[7]))
         );
+        //set up panel sizing
+
         //add panels
         add(infoPane);
         add(notePane);
