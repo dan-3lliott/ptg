@@ -2,7 +2,6 @@ import com.alee.laf.panel.*;
 import com.alee.managers.style.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.List;
 
 public class AddPanel extends JPanel {
     //variable declarations
@@ -103,6 +102,14 @@ public class AddPanel extends JPanel {
                     notes1.setText(null);
                     notes2.setText(null);
                     notes3.setText(null);
+                    a1.setSelectedIndex(-1);
+                    a2.setSelectedIndex(-1);
+                    a3.setSelectedIndex(-1);
+                    a4.setSelectedIndex(-1);
+                    b1.setSelectedIndex(-1);
+                    b2.setSelectedIndex(-1);
+                    b3.setSelectedIndex(-1);
+                    b4.setSelectedIndex(-1);
                 }
                 catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Please ensure that all fields are correct before proceeding.");

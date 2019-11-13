@@ -1,5 +1,4 @@
 import com.alee.laf.*;
-import com.alee.managers.style.*;
 import java.awt.EventQueue;
 
 public class Main {
