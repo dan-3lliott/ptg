@@ -67,7 +67,7 @@ public class ViewPanel extends JPanel {
         //set up table
         studentTable.setRowHeight(35);
         studentTable.setRowSorter(rowSorter);
-        tablePane.setPreferredSize(new Dimension(1100, 600));
+        tablePane.setPreferredSize(new Dimension(1400, 700));
         tablePane.setFocusable(false);
         searchBar.setInputPrompt("Search...");
         add(tablePane);
