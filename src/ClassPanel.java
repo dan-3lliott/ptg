@@ -1,7 +1,6 @@
 import com.alee.laf.panel.*;
 import com.alee.managers.style.*;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class ClassPanel extends JPanel {
@@ -11,9 +10,9 @@ public class ClassPanel extends JPanel {
     private JLabel classTitleLabel = new JLabel("Class Title:");
     private JTextField classTitle = new JTextField();
     private JLabel classCreditLabel = new JLabel("Credit Type:");
-    private JComboBox classCredit = new JComboBox(Main.classTypes);
+    private JComboBox<String> classCredit = new JComboBox<>(Main.classTypes);
     private JLabel classPeriodLabel = new JLabel("Class Period(s):");
-    private JComboBox classPeriod = new JComboBox(Main.periods);
+    private JComboBox<String> classPeriod = new JComboBox<>(Main.periods);
     private JButton addClass = new JButton("Add Class");
     public ClassPanel(AddPanel addPanelReference) {
         addClass.addActionListener(new ActionListener() {

@@ -1,5 +1,5 @@
-import com.alee.laf.panel.*;
-import com.alee.managers.style.*;
+import com.alee.laf.panel.WebPanel;
+import com.alee.managers.style.StyleId;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.List;
@@ -17,7 +17,7 @@ public class AddPanel extends JPanel {
     private JLabel studentNumLabel = new JLabel("Student Number:");
     private JTextField studentNum = new JTextField();
     private JLabel eduLabel = new JLabel("Education Plan:");
-    private JComboBox eduPlan = new JComboBox(new String[]{
+    private JComboBox<String> eduPlan = new JComboBox<>(new String[]{
             "High School Diploma", "Technical Training", "Associate Degree",
             "Bachelors Degree", "Advanced Degree", "Military", "Other"});
     private JLabel collegeLabel = new JLabel("College:");
@@ -25,7 +25,7 @@ public class AddPanel extends JPanel {
     private JLabel careerPathLabel = new JLabel("Career Path:");
     private JTextField careerPath = new JTextField();
     private JLabel ethnicityLabel = new JLabel("Ethnicity:");
-    private JComboBox ethnicity = new JComboBox(new String[]{
+    private JComboBox<String> ethnicity = new JComboBox<>(new String[]{
             "Hispanic or Latino Origin", "American Indian or Alaska Native", "Asian", "Black or African American",
             "Native Hawaiian or Other Pacific Islander", "White", "Two or more races"});
     private JLabel regentsLabel = new JLabel("Regents:");
@@ -35,7 +35,7 @@ public class AddPanel extends JPanel {
     private JLabel firstGenLabel = new JLabel("First Gen:");
     private JCheckBox firstGen = new JCheckBox();
     private JLabel genderLabel = new JLabel("Gender:");
-    private JComboBox gender = new JComboBox(new String[]{"Male", "Female", "Other"});
+    private JComboBox<String> gender = new JComboBox<>(new String[]{"Male", "Female", "Other"});
     private JLabel majorLabel = new JLabel("Major:");
     private JTextField major = new JTextField();
     private JLabel gpaLabel = new JLabel("GPA:");
@@ -128,7 +128,7 @@ public class AddPanel extends JPanel {
         notes3.setWrapStyleWord(true);
         List<Object[]> dbClasses = Database.classes();
         for (int i = 0; i < dbClasses.size(); i++) {
-            classes[i] = new JComboBox(dbClasses.get(i));
+            classes[i] = new JComboBox<>(dbClasses.get(i));
             classes[i].setSelectedIndex(-1);
         }
         //add components to infoLayout and infoPane
@@ -281,7 +281,7 @@ public class AddPanel extends JPanel {
     public void update() {
         List<Object[]> dbClasses = Database.classes();
         for (int i = 0; i < dbClasses.size(); i++) {
-            classes[i].setModel(new DefaultComboBoxModel(dbClasses.get(i)));
+            classes[i].setModel(new DefaultComboBoxModel<>(dbClasses.get(i)));
             classes[i].setSelectedIndex(-1);
         }
     }

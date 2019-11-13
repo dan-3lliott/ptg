@@ -19,7 +19,7 @@ public class EditWindow extends JFrame {
     private JLabel studentNumLabel = new JLabel("Student Number:");
     private JTextField studentNum = new JTextField();
     private JLabel eduLabel = new JLabel("Education Plan:");
-    private JComboBox eduPlan = new JComboBox(new String[]{
+    private JComboBox<String> eduPlan = new JComboBox<>(new String[]{
             "High School Diploma", "Technical Training", "Associate Degree",
             "Bachelors Degree", "Advanced Degree", "Military", "Other"});
     private JLabel collegeLabel = new JLabel("College:");
@@ -27,7 +27,7 @@ public class EditWindow extends JFrame {
     private JLabel careerPathLabel = new JLabel("Career Path:");
     private JTextField careerPath = new JTextField();
     private JLabel ethnicityLabel = new JLabel("Ethnicity:");
-    private JComboBox ethnicity = new JComboBox(new String[]{
+    private JComboBox<String> ethnicity = new JComboBox<>(new String[]{
             "Hispanic or Latino Origin", "American Indian or Alaska Native", "Asian", "Black or African American",
             "Native Hawaiian or Other Pacific Islander", "White", "Two or more races"});
     private JLabel regentsLabel = new JLabel("Regents:");
@@ -37,7 +37,7 @@ public class EditWindow extends JFrame {
     private JLabel firstGenLabel = new JLabel("First Gen:");
     private JCheckBox firstGen = new JCheckBox();
     private JLabel genderLabel = new JLabel("Gender:");
-    private JComboBox gender = new JComboBox(new String[]{"Male", "Female", "Other"});
+    private JComboBox<String> gender = new JComboBox<>(new String[]{"Male", "Female", "Other"});
     private JLabel majorLabel = new JLabel("Major:");
     private JTextField major = new JTextField();
     private JLabel gpaLabel = new JLabel("GPA:");
