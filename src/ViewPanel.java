@@ -63,11 +63,11 @@ public class ViewPanel extends JPanel {
             }
         });
         //set up layout
-        setLayout(new FlowLayout(FlowLayout.CENTER, 5, 35));
+        setLayout(new FlowLayout(FlowLayout.CENTER, 5, 20));
         //set up table
         studentTable.setRowHeight(35);
         studentTable.setRowSorter(rowSorter);
-        tablePane.setPreferredSize(new Dimension(1400, 700));
+        tablePane.setPreferredSize(new Dimension(1100, 600));
         tablePane.setFocusable(false);
         searchBar.setInputPrompt("Search...");
         add(tablePane);

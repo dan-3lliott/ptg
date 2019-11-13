@@ -8,8 +8,8 @@ public class ptgWindow extends JFrame {
     private ClassPanel classPanel = new ClassPanel(addPanel);
     public ptgWindow() {
         //set up jframe
-        setPreferredSize(new Dimension(1600, 900));
-        setMinimumSize(new Dimension(1600, 900));
+        setPreferredSize(new Dimension(1300, 700));
+        setMinimumSize(new Dimension(1300, 700));
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("ptg");
