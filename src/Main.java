@@ -5,6 +5,7 @@ public class Main {
     public static final String[] classTypes = new String[]{"Language Arts", "Mathematics", "Science", "Social Studies",
             "U.S. Government/Citizenship", "Health Education", "Physical Education", "Fitness for Life", "Fine Arts",
             "Career and Technical Education", "Computer Technology", "General Financial Literacy", "Electives" }; //different class types with different requirements
+    public static final String[] periods = new String[]{"1A", "2A", "3A", "4A", "1B", "2B", "3B", "4B"};
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             @Override

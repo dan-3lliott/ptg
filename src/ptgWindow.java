@@ -5,7 +5,7 @@ public class ptgWindow extends JFrame {
     private JTabbedPane mainPane = new JTabbedPane();
     private ViewPanel viewPanel = new ViewPanel();
     private AddPanel addPanel = new AddPanel(viewPanel);
-    private ClassPanel classPanel = new ClassPanel();
+    private ClassPanel classPanel = new ClassPanel(addPanel);
     public ptgWindow() {
         //set up jframe
         setPreferredSize(new Dimension(1200, 700));

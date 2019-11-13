@@ -13,20 +13,22 @@ public class ClassPanel extends JPanel {
     private JLabel classCreditLabel = new JLabel("Credit Type:");
     private JComboBox classCredit = new JComboBox(Main.classTypes);
     private JLabel classPeriodLabel = new JLabel("Class Period(s):");
-    private JComboBox classPeriod = new JComboBox(new String[]{"1A", "2A", "3A", "4A", "1B", "2B", "3B", "4B"});
+    private JComboBox classPeriod = new JComboBox(Main.periods);
     private JButton addClass = new JButton("Add Class");
-    public ClassPanel() {
+    public ClassPanel(AddPanel addPanelReference) {
         addClass.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 try {
                     //add class column into database
                     Database.executeStatement("ALTER TABLE students ADD `" + classTitle.getText() + "_" + classPeriod.getSelectedItem() +
                             "` BOOLEAN");
+                    //update addpanel class possibilities
+                    addPanelReference.update();
                     JOptionPane.showMessageDialog(null, "Class successfully added.");
                     //reset all fields
                     classTitle.setText(null);
-                    classCredit.setSelectedIndex(0);
-                    classPeriod.setSelectedIndex(0);
+                    classCredit.setSelectedIndex(-1);
+                    classPeriod.setSelectedIndex(-1);
                 }
                 catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e.getMessage());
@@ -37,6 +39,9 @@ public class ClassPanel extends JPanel {
         infoPane.setLayout(infoLayout);
         infoLayout.setAutoCreateGaps(true);
         infoLayout.setAutoCreateContainerGaps(true);
+        //set up components
+        classCredit.setSelectedIndex(-1);
+        classPeriod.setSelectedIndex(-1);
         //add components to layout and pane
         infoLayout.setHorizontalGroup(infoLayout.createSequentialGroup()
                 .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)

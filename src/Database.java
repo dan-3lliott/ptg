@@ -24,8 +24,11 @@ public class Database {
         }
         return contents;
     }
-    public static Object[] classes() {
-        List<Object> dbClasses = new ArrayList<>(8);
+    public static List<Object[]> classes() {
+        List<List<Object>> dbClasses = new ArrayList<>(8);
+        for (int i = 0; i < 8; i++) {
+            dbClasses.add(new ArrayList<>());
+        }
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
@@ -34,7 +37,7 @@ public class Database {
             while (results.next()) {
                 if (i > 16) { //skip past student information to class columns
                     String s = results.getString(1);
-                    dbClasses.add(s.substring(0, s.indexOf("_")));
+                    dbClasses.get(Arrays.asList(Main.periods).indexOf(s.substring(s.indexOf("_") + 1))).add(s.substring(0, s.indexOf("_")));
                 }
                 i++;
             }
@@ -42,9 +45,9 @@ public class Database {
         catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        Object[] classes = new Object[dbClasses.size()];
-        for (int i = 0; i < classes.length; i++) {
-            classes[i] = dbClasses.get(i);
+        List<Object[]> classes = new ArrayList<>();
+        for (int i = 0; i < dbClasses.size(); i++) {
+            classes.add(dbClasses.get(i).toArray());
         }
         return classes;
     }

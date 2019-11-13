@@ -2,6 +2,7 @@ import com.alee.laf.panel.*;
 import com.alee.managers.style.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.List;
 
 public class AddPanel extends JPanel {
     //variable declarations
@@ -52,23 +53,15 @@ public class AddPanel extends JPanel {
     private JScrollPane notes1pane = new JScrollPane(notes1);
     private JScrollPane notes2pane = new JScrollPane(notes2);
     private JScrollPane notes3pane = new JScrollPane(notes3);
-    private Object[] classes = Database.classes();
-    private JLabel a1label = new JLabel("A1:");
-    private JComboBox a1 = new JComboBox(classes);
-    private JLabel a2label = new JLabel("A2:");
-    private JComboBox a2 = new JComboBox(classes);
-    private JLabel a3label = new JLabel("A3:");
-    private JComboBox a3 = new JComboBox(classes);
-    private JLabel a4label = new JLabel("A4:");
-    private JComboBox a4 = new JComboBox(classes);
-    private JLabel b1label = new JLabel("B1:");
-    private JComboBox b1 = new JComboBox(classes);
-    private JLabel b2label = new JLabel("B2:");
-    private JComboBox b2 = new JComboBox(classes);
-    private JLabel b3label = new JLabel("B3:");
-    private JComboBox b3 = new JComboBox(classes);
-    private JLabel b4label = new JLabel("B4:");
-    private JComboBox b4 = new JComboBox(classes);
+    private JComboBox[] classes = new JComboBox[8]; //index 0 -> 1a, 2 -> 2a, ... 7 -> 4b
+    private JLabel a1label = new JLabel("1A:");
+    private JLabel a2label = new JLabel("2A:");
+    private JLabel a3label = new JLabel("3A:");
+    private JLabel a4label = new JLabel("4A:");
+    private JLabel b1label = new JLabel("1B:");
+    private JLabel b2label = new JLabel("2B:");
+    private JLabel b3label = new JLabel("3B:");
+    private JLabel b4label = new JLabel("4B:");
     //constructor
     public AddPanel(ViewPanel viewPanelReference) {
         addStudent.addActionListener(new ActionListener() {
@@ -102,14 +95,9 @@ public class AddPanel extends JPanel {
                     notes1.setText(null);
                     notes2.setText(null);
                     notes3.setText(null);
-                    a1.setSelectedIndex(-1);
-                    a2.setSelectedIndex(-1);
-                    a3.setSelectedIndex(-1);
-                    a4.setSelectedIndex(-1);
-                    b1.setSelectedIndex(-1);
-                    b2.setSelectedIndex(-1);
-                    b3.setSelectedIndex(-1);
-                    b4.setSelectedIndex(-1);
+                    for (JComboBox cb : classes) {
+                        cb.setSelectedIndex(-1);
+                    }
                 }
                 catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Please ensure that all fields are correct before proceeding.");
@@ -138,14 +126,11 @@ public class AddPanel extends JPanel {
         notes2.setWrapStyleWord(true);
         notes3.setLineWrap(true);
         notes3.setWrapStyleWord(true);
-        a1.setSelectedIndex(-1);
-        a2.setSelectedIndex(-1);
-        a3.setSelectedIndex(-1);
-        a4.setSelectedIndex(-1);
-        b1.setSelectedIndex(-1);
-        b2.setSelectedIndex(-1);
-        b3.setSelectedIndex(-1);
-        b4.setSelectedIndex(-1);
+        List<Object[]> dbClasses = Database.classes();
+        for (int i = 0; i < dbClasses.size(); i++) {
+            classes[i] = new JComboBox(dbClasses.get(i));
+            classes[i].setSelectedIndex(-1);
+        }
         //add components to infoLayout and infoPane
         infoLayout.setHorizontalGroup(infoLayout.createSequentialGroup()
                 .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
@@ -251,46 +236,53 @@ public class AddPanel extends JPanel {
                         .addComponent(a3label)
                         .addComponent(a4label))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(a1)
-                        .addComponent(a2)
-                        .addComponent(a3)
-                        .addComponent(a4))
+                        .addComponent(classes[0])
+                        .addComponent(classes[1])
+                        .addComponent(classes[2])
+                        .addComponent(classes[3]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                         .addComponent(b1label)
                         .addComponent(b2label)
                         .addComponent(b3label)
                         .addComponent(b4label))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(b1)
-                        .addComponent(b2)
-                        .addComponent(b3)
-                        .addComponent(b4))
+                        .addComponent(classes[4])
+                        .addComponent(classes[5])
+                        .addComponent(classes[6])
+                        .addComponent(classes[7]))
         );
         classLayout.setVerticalGroup(classLayout.createSequentialGroup()
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(a1label)
-                        .addComponent(a1)
+                        .addComponent(classes[0])
                         .addComponent(b1label)
-                        .addComponent(b1))
+                        .addComponent(classes[4]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(a2label)
-                        .addComponent(a2)
+                        .addComponent(classes[1])
                         .addComponent(b2label)
-                        .addComponent(b2))
+                        .addComponent(classes[5]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(a3label)
-                        .addComponent(a3)
+                        .addComponent(classes[2])
                         .addComponent(b3label)
-                        .addComponent(b3))
+                        .addComponent(classes[6]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(a4label)
-                        .addComponent(a4)
+                        .addComponent(classes[3])
                         .addComponent(b4label)
-                        .addComponent(b4))
+                        .addComponent(classes[7]))
         );
         //add panels
         add(infoPane);
         add(notePane);
         add(classPane);
+    }
+    public void update() {
+        List<Object[]> dbClasses = Database.classes();
+        for (int i = 0; i < dbClasses.size(); i++) {
+            classes[i].setModel(new DefaultComboBoxModel(dbClasses.get(i)));
+            classes[i].setSelectedIndex(-1);
+        }
     }
 }
