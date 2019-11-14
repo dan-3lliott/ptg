@@ -14,7 +14,6 @@ public class ptgWindow extends JFrame {
         setLocationRelativeTo(null);
         setTitle("ptg");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        mainPane.setTabPlacement(SwingConstants.LEFT);
         setContentPane(mainPane);
         //add components
         mainPane.add(viewPanel, "View Students");

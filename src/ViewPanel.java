@@ -3,7 +3,6 @@ import javax.swing.table.*;
 import javax.swing.event.*;
 import java.awt.Dimension;
 import java.awt.event.*;
-import java.awt.FlowLayout;
 import com.alee.laf.scroll.WebScrollPane;
 import com.alee.laf.text.*;
 import com.alee.managers.style.*;
@@ -21,7 +20,7 @@ public class ViewPanel extends JPanel {
     private JTable studentTable = new JTable(studentModel);
     private JScrollPane tablePane = new WebScrollPane(StyleId.of("scrollshadow"), studentTable);
     private TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(studentModel);
-    private WebTextField searchBar = new WebTextField(40);
+    private WebTextField searchBar = new WebTextField();
     //constructor
     public ViewPanel() {
         //search functionality
@@ -63,17 +62,31 @@ public class ViewPanel extends JPanel {
             }
         });
         //set up layout
-        setLayout(new FlowLayout(FlowLayout.CENTER, 5, 20));
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         //set up table
-        studentTable.setRowHeight(35);
+        studentTable.setRowHeight(30);
         studentTable.setRowSorter(rowSorter);
-        tablePane.setPreferredSize(new Dimension(1400, 700));
+        studentTable.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
+        sizeColumns();
         tablePane.setFocusable(false);
         searchBar.setInputPrompt("Search...");
+        searchBar.setMaximumSize(new Dimension(600, 40));
         add(tablePane);
         add(searchBar);
+        add(Box.createRigidArea(new Dimension(0, 10)));
+    }
+    public void sizeColumns() {
+        studentTable.getColumn("Student Name").setPreferredWidth(150);
+        studentTable.getColumn("Student Number").setPreferredWidth(110);
+        studentTable.getColumn("Education Plan").setPreferredWidth(150);
+        studentTable.getColumn("College").setPreferredWidth(350);
+        studentTable.getColumn("Career Path").setPreferredWidth(300);
+        studentTable.getColumn("Ethnicity").setPreferredWidth(240);
+        studentTable.getColumn("Gender").setPreferredWidth(80);
+        studentTable.getColumn("Major").setPreferredWidth(250);
     }
     public void update() {
-        studentModel.setDataVector(Database.viewTableContents(), studentTableHeader);
+        studentModel.setDataVector(Database.viewTableContents(), studentTableHeader); //pull updated table data from database
+        sizeColumns();
     }
 }

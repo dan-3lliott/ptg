@@ -26,7 +26,7 @@
         <painter>
             <decorations>
                 <decoration>
-                    <WebShape round="5" />
+                    <WebShape round="8" />
                     <WebShadow type="outer" width="15" />
                 </decoration>
             </decorations>
