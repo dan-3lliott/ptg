@@ -55,14 +55,7 @@ public class AddPanel extends JPanel {
     private JScrollPane notes2pane = new JScrollPane(notes2);
     private JScrollPane notes3pane = new JScrollPane(notes3);
     private JComboBox[] classes = new JComboBox[8]; //index 0 -> 1a, 2 -> 2a, ... 7 -> 4b
-    private JLabel a1label = new JLabel("1A:");
-    private JLabel a2label = new JLabel("2A:");
-    private JLabel a3label = new JLabel("3A:");
-    private JLabel a4label = new JLabel("4A:");
-    private JLabel b1label = new JLabel("1B:");
-    private JLabel b2label = new JLabel("2B:");
-    private JLabel b3label = new JLabel("3B:");
-    private JLabel b4label = new JLabel("4B:");
+    private JLabel[] classLabels = new JLabel[8];
     //constructor
     public AddPanel(ViewPanel viewPanelReference) {
         addStudent.addActionListener(new ActionListener() {
@@ -76,6 +69,15 @@ public class AddPanel extends JPanel {
                             college.getText() + "', '" + careerPath.getText() + "', '" + ethnicity.getSelectedItem() + "', '" +
                             (regents.isSelected() ? 1 : 0) + "', '" + (ncaa.isSelected() ? 1 : 0) + "', '" + (firstGen.isSelected() ? 1 : 0) +
                             "', '" + gender.getSelectedItem() + "', '" + major.getText() + "', '" + gpa.getText() + "', '" + studentNum.getText() + "')");
+                    //make class columns reflect scheduling
+                    String statement = "UPDATE students SET ";
+                    for (int i = 0; i < classLabels.length; i++) {
+                        if (classes[i].getSelectedItem() != null) {
+                            statement += "`" + classes[i].getSelectedItem() + "_" + classLabels[i].getText().substring(0, classLabels[i].getText().indexOf(":")) + "` = '1', ";
+                        }
+                    }
+                    statement = statement.substring(0, statement.length() - 2) + " WHERE studentNum = '" + studentNum.getText() + "'"; //finalize statement and remove last comma
+                    Database.executeStatement(statement);
                     //add student into table
                     viewPanelReference.update();
                     JOptionPane.showMessageDialog(null, "Student successfully added.");
@@ -127,10 +129,15 @@ public class AddPanel extends JPanel {
         notes2.setWrapStyleWord(true);
         notes3.setLineWrap(true);
         notes3.setWrapStyleWord(true);
+        //set up class comboboxes
         List<Object[]> dbClasses = Database.classes();
         for (int i = 0; i < dbClasses.size(); i++) {
             classes[i] = new JComboBox<>(dbClasses.get(i));
             classes[i].setSelectedIndex(-1);
+        }
+        //set up class labels
+        for (int i = 0; i < classes.length; i++) {
+            classLabels[i] = new JLabel(Main.periods[i] + ":");
         }
         //add components to infoLayout and infoPane
         infoLayout.setHorizontalGroup(infoLayout.createSequentialGroup()
@@ -232,20 +239,20 @@ public class AddPanel extends JPanel {
         //add components to classLayout and classPane
         classLayout.setHorizontalGroup(classLayout.createSequentialGroup()
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(a1label)
-                        .addComponent(a2label)
-                        .addComponent(a3label)
-                        .addComponent(a4label))
+                        .addComponent(classLabels[0])
+                        .addComponent(classLabels[1])
+                        .addComponent(classLabels[2])
+                        .addComponent(classLabels[3]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(classes[0])
                         .addComponent(classes[1])
                         .addComponent(classes[2])
                         .addComponent(classes[3]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(b1label)
-                        .addComponent(b2label)
-                        .addComponent(b3label)
-                        .addComponent(b4label))
+                        .addComponent(classLabels[4])
+                        .addComponent(classLabels[5])
+                        .addComponent(classLabels[6])
+                        .addComponent(classLabels[7]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(classes[4])
                         .addComponent(classes[5])
@@ -254,24 +261,24 @@ public class AddPanel extends JPanel {
         );
         classLayout.setVerticalGroup(classLayout.createSequentialGroup()
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(a1label)
+                        .addComponent(classLabels[0])
                         .addComponent(classes[0])
-                        .addComponent(b1label)
+                        .addComponent(classLabels[4])
                         .addComponent(classes[4]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(a2label)
+                        .addComponent(classLabels[1])
                         .addComponent(classes[1])
-                        .addComponent(b2label)
+                        .addComponent(classLabels[5])
                         .addComponent(classes[5]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(a3label)
+                        .addComponent(classLabels[2])
                         .addComponent(classes[2])
-                        .addComponent(b3label)
+                        .addComponent(classLabels[6])
                         .addComponent(classes[6]))
                 .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
-                        .addComponent(a4label)
+                        .addComponent(classLabels[3])
                         .addComponent(classes[3])
-                        .addComponent(b4label)
+                        .addComponent(classLabels[7])
                         .addComponent(classes[7]))
         );
         //set up panel sizing
