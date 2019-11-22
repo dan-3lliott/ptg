@@ -14,8 +14,8 @@
         <painter>
             <decorations>
                 <decoration>
-                    <WebShape round="5" />
-                    <WebShadow type="outer" width="15" />
+                    <WebShape round="6" />
+                    <WebShadow type="outer" width="25" opacity="1"/>
                     <LineBorder color="0, 0, 0" />
                 </decoration>
             </decorations>
@@ -26,8 +26,8 @@
         <painter>
             <decorations>
                 <decoration>
-                    <WebShape round="8" />
-                    <WebShadow type="outer" width="15" />
+                    <WebShape round="6" />
+                    <WebShadow type="outer" width="25" opacity="1"/>
                 </decoration>
             </decorations>
         </painter>
