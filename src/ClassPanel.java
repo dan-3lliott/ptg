@@ -14,7 +14,9 @@ public class ClassPanel extends JPanel {
     private JLabel classPeriodLabel = new JLabel("Class Period(s):");
     private JComboBox<String> classPeriod = new JComboBox<>(Main.periods);
     private JButton addClass = new JButton("Add Class");
+    //constructor
     public ClassPanel(AddPanel addPanelReference) {
+        //action listener for button
         addClass.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 try {
@@ -67,7 +69,7 @@ public class ClassPanel extends JPanel {
                 .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(addClass))
         );
-        //add panels with spacing
+        //add pane with spacing
         add(Box.createHorizontalGlue());
         add(infoPane);
         add(Box.createHorizontalGlue());

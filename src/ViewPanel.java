@@ -53,6 +53,7 @@ public class ViewPanel extends JPanel {
                 }
             }
         });
+        //double click mouse listener to open EditWindow
         studentTable.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent ev) {
                 if (ev.getClickCount() == 2) {
@@ -67,10 +68,11 @@ public class ViewPanel extends JPanel {
         studentTable.setRowHeight(30);
         studentTable.setRowSorter(rowSorter);
         studentTable.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
-        sizeColumns();
+        sizeColumns(); //size columns to their designated width
         tablePane.setFocusable(false);
-        searchBar.setInputPrompt("Search...");
+        searchBar.setInputPrompt("Search..."); //note - this is a WebTextField exclusive functionality
         searchBar.setMaximumSize(new Dimension(600, 40));
+        //add spacing and components
         add(tablePane);
         add(searchBar);
         add(Box.createRigidArea(new Dimension(0, 10)));
@@ -86,7 +88,7 @@ public class ViewPanel extends JPanel {
         studentTable.getColumn("Major").setPreferredWidth(250);
     }
     public void update() {
-        studentModel.setDataVector(Database.viewTableContents(), studentTableHeader); //pull updated table data from database
+        studentModel.setDataVector(Database.viewTableContents(), studentTableHeader); //pulls updated table data from database
         sizeColumns();
     }
 }

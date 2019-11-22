@@ -1,5 +1,6 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import java.awt.Dimension;
 
 public class ptgWindow extends JFrame {
     private JTabbedPane mainPane = new JTabbedPane();

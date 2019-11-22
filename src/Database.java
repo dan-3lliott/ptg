@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.*;
 
 public class Database {
-    public static Object[][] viewTableContents() {
+    public static Object[][] viewTableContents() { //pulls only student data that is present in the table
         List<Object[]> tableContents = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -24,7 +24,7 @@ public class Database {
         }
         return contents;
     }
-    public static List<Object[]> classes() {
+    public static List<Object[]> classes() { //returns all of the classes present in the database
         List<List<Object>> dbClasses = new ArrayList<>(8);
         for (int i = 0; i < 8; i++) {
             dbClasses.add(new ArrayList<>());
@@ -51,7 +51,7 @@ public class Database {
         }
         return classes;
     }
-    public static Object[] studentData(int studentNum) {
+    public static Object[] studentData(int studentNum) { //pull all data on student, used by EditWindow
         Object[] dbData = new Object[17];
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -71,11 +71,11 @@ public class Database {
         }
         return dbData;
     }
-    public static void executeStatement(String statement) {
+    public static void executeStatement(String statement) { //general executeStatement method used primarily for pushing data into db
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dnHbcxGDVx", "dnHbcxGDVx", "QNyBdxwgIA");
-            con.prepareStatement(statement).execute();
+            con.prepareStatement(statement).execute(); //preparedStatement helps prevent against SQL injection
             con.close();
         }
         catch (Exception e) {

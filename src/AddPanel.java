@@ -2,7 +2,6 @@ import com.alee.laf.panel.WebPanel;
 import com.alee.managers.style.StyleId;
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.Dimension;
 import java.util.List;
 
 public class AddPanel extends JPanel {
@@ -50,7 +49,7 @@ public class AddPanel extends JPanel {
     private JTextArea notes2 = new JTextArea(6, 20);
     private JLabel notes3label = new JLabel("12th Grade Notes:");
     private JTextArea notes3 = new JTextArea(6, 20);
-    private JScrollPane notes0pane = new JScrollPane(notes0);
+    private JScrollPane notes0pane = new JScrollPane(notes0); //notes0 -> 9th grade, notes1 -> 10th grade, etc., will convert to a JScrollPane[] in the future similar to classes and classLabels
     private JScrollPane notes1pane = new JScrollPane(notes1);
     private JScrollPane notes2pane = new JScrollPane(notes2);
     private JScrollPane notes3pane = new JScrollPane(notes3);
@@ -58,6 +57,7 @@ public class AddPanel extends JPanel {
     private JLabel[] classLabels = new JLabel[8];
     //constructor
     public AddPanel(ViewPanel viewPanelReference) {
+        //action listener for add student button
         addStudent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 try {
@@ -107,9 +107,9 @@ public class AddPanel extends JPanel {
                 }
             }
         });
-        //set up content pane
+        //set up layout
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        //set up each individual panel
+        //set up each individual pane
         infoPane.setLayout(infoLayout);
         notePane.setLayout(noteLayout);
         classPane.setLayout(classLayout);
@@ -283,9 +283,7 @@ public class AddPanel extends JPanel {
                         .addComponent(classLabels[7])
                         .addComponent(classes[7]))
         );
-        //set up panel sizing
-
-        //add spacing and content panels
+        //add spacing and content panes
         add(Box.createHorizontalGlue());
         add(infoPane);
         add(notePane);
@@ -293,9 +291,9 @@ public class AddPanel extends JPanel {
         add(Box.createHorizontalGlue());
     }
     public void update() {
-        List<Object[]> dbClasses = Database.classes();
+        List<Object[]> dbClasses = Database.classes(); //pulls all classes from database
         for (int i = 0; i < dbClasses.size(); i++) {
-            classes[i].setModel(new DefaultComboBoxModel<>(dbClasses.get(i)));
+            classes[i].setModel(new DefaultComboBoxModel<>(dbClasses.get(i))); //puts each class into the combobox for its specific period
             classes[i].setSelectedIndex(-1);
         }
     }

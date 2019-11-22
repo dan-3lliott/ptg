@@ -1,4 +1,4 @@
-import com.alee.laf.*;
+import com.alee.laf.WebLookAndFeel;
 import java.awt.EventQueue;
 
 public class Main {
@@ -10,9 +10,9 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                WebLookAndFeel.install(PTGSkin.class); //Installs the WebLookAndFeel library with the dark skin
+                WebLookAndFeel.install(PTGSkin.class); //installs the WebLookAndFeel library with the custom skin
                 ptgWindow win = new ptgWindow();
-                win.setVisible(true);
+                win.setVisible(true); //open main ptg window
             }
         });
     }

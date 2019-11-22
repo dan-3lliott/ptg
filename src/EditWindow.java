@@ -1,7 +1,7 @@
-import com.alee.laf.panel.*;
-import com.alee.managers.style.*;
+import com.alee.laf.panel.WebPanel;
+import com.alee.managers.style.StyleId;
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
 import java.awt.event.*;
 
 public class EditWindow extends JFrame {
@@ -59,6 +59,7 @@ public class EditWindow extends JFrame {
     public EditWindow(int studentNo, ViewPanel viewPanelReference) {
         //get student data from database
         studentData = Database.studentData(studentNo);
+        //action listener for the button to confirm changes
         editStudent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 try {
@@ -240,7 +241,7 @@ public class EditWindow extends JFrame {
         notes1.setText(studentData[13].toString());
         notes2.setText(studentData[14].toString());
         notes3.setText(studentData[15].toString());
-        //combine panels
+        //add panels and spacing
         mainPane.add(infoPane);
         mainPane.add(notePane);
         //mainPane.add(classPane);
