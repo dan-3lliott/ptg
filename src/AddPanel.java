@@ -108,6 +108,8 @@ public class AddPanel extends JPanel {
             }
         });
         //set up content pane
+        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        //set up each individual panel
         infoPane.setLayout(infoLayout);
         notePane.setLayout(noteLayout);
         classPane.setLayout(classLayout);
@@ -129,7 +131,7 @@ public class AddPanel extends JPanel {
         notes2.setWrapStyleWord(true);
         notes3.setLineWrap(true);
         notes3.setWrapStyleWord(true);
-        //set up class comboboxes
+        //set up class combo boxes
         List<Object[]> dbClasses = Database.classes();
         for (int i = 0; i < dbClasses.size(); i++) {
             classes[i] = new JComboBox<>(dbClasses.get(i));
@@ -211,12 +213,12 @@ public class AddPanel extends JPanel {
         );
         //add components to noteLayout and notePane
         noteLayout.setHorizontalGroup(noteLayout.createSequentialGroup()
-                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.LEADING, true)
                         .addComponent(notes0label)
                         .addComponent(notes0pane)
                         .addComponent(notes2label)
                         .addComponent(notes2pane))
-                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                .addGroup(noteLayout.createParallelGroup(GroupLayout.Alignment.LEADING, true)
                         .addComponent(notes1label)
                         .addComponent(notes1pane)
                         .addComponent(notes3label)
@@ -238,22 +240,22 @@ public class AddPanel extends JPanel {
         );
         //add components to classLayout and classPane
         classLayout.setHorizontalGroup(classLayout.createSequentialGroup()
-                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, true)
                         .addComponent(classLabels[0])
                         .addComponent(classLabels[1])
                         .addComponent(classLabels[2])
                         .addComponent(classLabels[3]))
-                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, true)
                         .addComponent(classes[0])
                         .addComponent(classes[1])
                         .addComponent(classes[2])
                         .addComponent(classes[3]))
-                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, true)
                         .addComponent(classLabels[4])
                         .addComponent(classLabels[5])
                         .addComponent(classLabels[6])
                         .addComponent(classLabels[7]))
-                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                .addGroup(classLayout.createParallelGroup(GroupLayout.Alignment.LEADING, true)
                         .addComponent(classes[4])
                         .addComponent(classes[5])
                         .addComponent(classes[6])
@@ -283,10 +285,12 @@ public class AddPanel extends JPanel {
         );
         //set up panel sizing
 
-        //add panels
+        //add spacing and content panels
+        add(Box.createHorizontalGlue());
         add(infoPane);
         add(notePane);
         add(classPane);
+        add(Box.createHorizontalGlue());
     }
     public void update() {
         List<Object[]> dbClasses = Database.classes();
