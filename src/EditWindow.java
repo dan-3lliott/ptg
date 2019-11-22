@@ -55,10 +55,8 @@ public class EditWindow extends JFrame {
     private JScrollPane notes1pane = new JScrollPane(notes1);
     private JScrollPane notes2pane = new JScrollPane(notes2);
     private JScrollPane notes3pane = new JScrollPane(notes3);
-    private ViewPanel viewPanelReference = new ViewPanel();
     //constructor
     public EditWindow(int studentNo, ViewPanel viewPanelReference) {
-        this.viewPanelReference = viewPanelReference;
         //get student data from database
         studentData = Database.studentData(studentNo);
         editStudent.addActionListener(new ActionListener() {
@@ -245,7 +243,7 @@ public class EditWindow extends JFrame {
         //combine panels
         mainPane.add(infoPane);
         mainPane.add(notePane);
-        mainPane.add(classPane);
+        //mainPane.add(classPane);
     }
 }
 
