@@ -35,6 +35,7 @@ public class ClassPanel extends JPanel {
             }
         });
         //set up layout and pane
+        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         infoPane.setLayout(infoLayout);
         infoLayout.setAutoCreateGaps(true);
         infoLayout.setAutoCreateContainerGaps(true);
@@ -66,6 +67,9 @@ public class ClassPanel extends JPanel {
                 .addGroup(infoLayout.createParallelGroup(GroupLayout.Alignment.CENTER, false)
                         .addComponent(addClass))
         );
+        //add panels with spacing
+        add(Box.createHorizontalGlue());
         add(infoPane);
+        add(Box.createHorizontalGlue());
     }
 }
