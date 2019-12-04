@@ -21,21 +21,13 @@ CREATE TABLE Students (
     id int NOT NULL,
     name varchar(255),
     grade int NOT NULL,
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE StudentsInPathways (
-    studentId int NOT NULL,
     pathwayId int NOT NULL,
-    FOREIGN KEY (studentId) REFERENCES Students(id),
+    PRIMARY KEY (id),
     FOREIGN KEY (pathwayId) REFERENCES Pathways(id)
 );
-
-INSERT INTO Students
-VALUES (9632019, 'Daniel Elliott', 12);
 
 INSERT INTO Pathways (title, mathReq, scienceReq, govReq)
 VALUES ('Utah Aerospace Pathways', 4.00, 6.00, 0.50);
 
-INSERT INTO StudentsInPathways
-VALUES (9632019, 1);
+INSERT INTO Students
+VALUES (9632019, 'Daniel Elliott', 12, 1);
