@@ -31,3 +31,6 @@ VALUES ('Utah Aerospace Pathways', 4.00, 6.00, 0.50);
 
 INSERT INTO Students
 VALUES (9632019, 'Daniel Elliott', 12, 1);
+
+INSERT INTO Pathways (title, languageReq, mathReq, scienceReq)
+VALUES ('Regents', 4.00, 4.00, 4.00);
