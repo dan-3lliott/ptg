@@ -1,4 +1,4 @@
-# ptg - Progress Towards Graduation (WIP)
+# ptg - Progress Towards Graduation (OUTDATED)
 ## Viewing Students
 
 Students can be viewed in a table under the "View Students" tab present at the top of the window.
